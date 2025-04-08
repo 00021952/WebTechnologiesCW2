@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Edit Goal
+  form(method='POST', action=`/goals/${goal.id}/edit`)
+    input(type='text', name='title', value=goal.title, required)
+    textarea(name='description', required)= goal.description
+    button(type='submit') Update Goal
+  if error
+    p(style='color: red; font-weight: bold')= error
